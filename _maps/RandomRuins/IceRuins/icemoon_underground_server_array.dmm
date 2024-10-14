@@ -71,7 +71,7 @@
 "tq" = (/turf/closed/mineral/snowmountain/icemoon,/area/overmap_encounter/planetoid/cave/explored)
 "tv" = (/obj/effect/turf_decal/techfloor/orange{dir = 10},/turf/open/floor/plasteel/tech,/area/ruin/unpowered/server_array)
 "ub" = (/obj/structure/sign/warning/securearea{pixel_y = 32},/obj/structure/flora/rock/pile/icy,/turf/open/floor/plating/asteroid/snow/icemoon,/area/overmap_encounter/planetoid/cave/explored)
-"uf" = (/obj/effect/turf_decal/siding/thinplating{dir = 8},/obj/effect/decal/cleanable/dirt/dust,/obj/structure/closet/crate/large,/mob/living/simple_animal/hostile/poison/giant_spider/hunter/ice,/turf/open/floor/plasteel/mono/dark,/area/ruin/unpowered/server_array/crew)
+"uf" = (/obj/effect/turf_decal/siding/thinplating{dir = 8},/obj/effect/decal/cleanable/dirt/dust,/obj/structure/closet/crate/large,/turf/open/floor/plasteel/mono/dark,/area/ruin/unpowered/server_array/crew)
 "vj" = (/turf/open/floor/plasteel/tech/techmaint,/area/ruin/unpowered/server_array/crew)
 "vV" = (/obj/structure/sign/poster/official/nanotrasen_logo{pixel_y = 32},/turf/open/floor/plating/asteroid/snow/icemoon,/area/overmap_encounter/planetoid/cave/explored)
 "wE" = (/obj/structure/marker_beacon,/turf/open/floor/plating/snowed/temperatre{initial_gas_mix = "ICEMOON_ATMOS"},/area/overmap_encounter/planetoid/cave/explored)
