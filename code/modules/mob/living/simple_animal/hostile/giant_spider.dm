@@ -244,6 +244,15 @@
 	color = rgb(114,228,250)
 	gold_core_spawnable = NO_SPAWN
 
+/mob/living/simple_animal/hostile/poison/giant_spider/hunter/viper/ice //spiders dont usually like tempatures of 140 kelvin who knew
+	name = "ice viper"
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	minbodytemp = 0
+	maxbodytemp = 1500
+	poison_per_bite = 8
+	poison_type = /datum/reagent/toxin/mindbreaker
+	color = rgb(114,228,250)
+
 /mob/living/simple_animal/hostile/poison/giant_spider/handle_automated_action()
 	if(!..()) //AIStatus is off
 		return 0
