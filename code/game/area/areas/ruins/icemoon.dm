@@ -24,3 +24,12 @@
 /area/ruin/unpowered/crashed_holemaker
 	name = "NTSV Holemaker II" // In honor of the kugelblitz shenanigan of all time
 	icon_state = "green"
+
+// Server Array
+/area/ruin/unpowered/server_array
+	name = "Server Array"
+	icon_state = "away4"
+
+/area/ruin/unpowered/server_array/crew
+	name = "Crew Quarters"
+	icon_state = "away2"
