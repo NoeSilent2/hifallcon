@@ -31,6 +31,7 @@
 "gV" = (/obj/machinery/door/airlock/maintenance,/obj/effect/mapping_helpers/airlock/locked,/obj/structure/cable{icon_state = "1-2"},/turf/open/floor/plasteel/tech/grid,/area/ruin/unpowered/server_array)
 "gZ" = (/obj/structure/window/reinforced{dir = 4},/obj/effect/turf_decal/techfloor/orange{dir = 1},/obj/structure/sign/warning/nosmoking{pixel_y = 32},/obj/machinery/computer/monitor/retro{dir = 8},/obj/structure/cable{icon_state = "0-8"},/turf/open/floor/plasteel/tech,/area/ruin/unpowered/server_array)
 "he" = (/obj/machinery/door/airlock/grunge,/turf/open/floor/plasteel/tech/grid,/area/ruin/unpowered/server_array)
+"hq" = (/obj/structure/closet/body_bag,/turf/open/floor/plating/asteroid/snow/icemoon,/area/overmap_encounter/planetoid/cave/explored)
 "hB" = (/obj/machinery/door/airlock/maintenance{dir = 8},/obj/effect/mapping_helpers/airlock/locked,/obj/structure/barricade/wooden,/turf/open/floor/plating/airless,/area/ruin/unpowered/server_array)
 "hQ" = (/obj/structure/closet/crate/trashcart,/obj/effect/turf_decal/industrial/hatch/yellow,/obj/effect/turf_decal/siding/thinplating{dir = 8},/obj/item/circular_saw/augment,/obj/item/ammo_casing/a44roum/hp,/turf/open/floor/plasteel/mono/dark,/area/ruin/unpowered/server_array/crew)
 "hR" = (/obj/structure/girder/reinforced,/turf/open/floor/plating/snowed/temperatre{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/server_array)
@@ -106,7 +107,6 @@
 "GV" = (/obj/machinery/light/dim/directional/east,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/vomit/old,/turf/open/floor/plating/rust,/area/ruin/unpowered/server_array/crew)
 "Hr" = (/obj/effect/turf_decal/techfloor/orange{dir = 4},/turf/open/floor/plating/airless,/area/ruin/unpowered/server_array)
 "Ht" = (/obj/structure/cable{icon_state = "4-8"},/obj/machinery/door/airlock/glass{dir = 8},/turf/open/floor/plasteel/tech/grid,/area/ruin/unpowered/server_array/crew)
-"HM" = (/obj/structure/closet/body_bag,/turf/open/floor/plating/asteroid/snow/icemoon,/area/overmap_encounter/planetoid/cave/explored)
 "Iu" = (/obj/structure/sign/poster/official/safety_report{pixel_x = -32},/turf/open/floor/plasteel/tech/grid,/area/ruin/unpowered/server_array/crew)
 "IJ" = (/obj/structure/salvageable/server,/obj/effect/turf_decal/techfloor/orange,/turf/open/floor/plasteel/tech{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/server_array)
 "IK" = (/turf/closed/wall/r_wall,/area/ruin/unpowered/server_array/crew)
@@ -162,8 +162,8 @@ QakpkpkpkpkpkpkpQaQaQaQaQaQaQatqtqtqtqtqtqtqtqtqtqQaQaQaQaQa
 kpkpkpkpSsPakpkpkpPakpQatqtqtqtqtqtqtqtqtqtqtqtqtqtqtqQaQaQa
 kpkpkpkpkpOQtqtqtqtqtqtqtqtqtqtqtqtqtqtqtqtqtqtqtqtqtqtqtqQa
 kpkpkpBwmHtqtqtqtqtqtqtqtqtqtqtqtqtqtqkpkptqtqtqtqtqtqtqtqQa
-kpkpPakptqtqtqtqtqtqtqkpkpkppSIKIKpSWmWmWmkpHMtqtqtqtqtqtqQa
-QakptqtqtqtqtqtqIKIKpSpSpSpSpSYQBcYJWmcmWmkpkpHMtqtqtqtqtqtq
+kpkpPakptqtqtqtqtqtqtqkpkpkppSIKIKpSWmWmWmkphqtqtqtqtqtqtqQa
+QakptqtqtqtqtqtqIKIKpSpSpSpSpSYQBcYJWmcmWmkpkphqtqtqtqtqtqtq
 tqtqtqtqtqIKIKNVIKgsXDPTwGpScHNwEPRobQRvWmkplTtqtqtqtqtqtqtq
 tqtqtqtqtqIKOczGPSQnJFbyGVIKOMRoeOLIfBshfBahWmfBWmWmWmtqtqtq
 tqtqtqtqIKIKIKIKIKQnqjeuJtIKIKDYIKfBfBhefBeefRYOfRdLWmtqtqtq
