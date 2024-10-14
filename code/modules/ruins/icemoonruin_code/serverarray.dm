@@ -7,7 +7,7 @@
 /datum/outfit/laborer
 	name = "Laborer"
 
-	belt = /obj/item/storage/belt/utility/full/engi
+	belt = /obj/item/storage/belt/utility/full
 	ears = /obj/item/radio/headset/headset_eng
 	uniform = /obj/item/clothing/under/color/khaki
 	suit = /obj/item/clothing/suit/hooded/wintercoat/engineering
@@ -16,3 +16,8 @@
 	r_pocket = /obj/item/t_scanner
 	back = /obj/item/storage/backpack/industrial
 	id = /obj/item/card/id
+
+/obj/effect/mob_spawn/human/laborer
+	name = "Laborer"
+	outfit = /datum/outfit/laborer
+	icon_state = "corpseengineer"
