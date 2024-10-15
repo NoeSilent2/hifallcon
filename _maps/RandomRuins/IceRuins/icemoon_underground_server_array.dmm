@@ -68,7 +68,7 @@
 "sO" = (/obj/machinery/door/airlock/external/glass{dir = 4},/turf/open/floor/plasteel/tech/grid,/area/ruin/unpowered/server_array/crew)
 "tb" = (/turf/open/floor/plasteel/mono/dark{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/server_array)
 "tg" = (/obj/machinery/light/dim/directional/east,/turf/open/floor/plasteel/tech/techmaint,/area/ruin/unpowered/server_array/crew)
-"tq" = (/turf/closed/mineral/snowmountain/icemoon,/area/overmap_encounter/planetoid/cave/explored)
+"tq" = (/turf/closed/mineral/random/snow,/area/overmap_encounter/planetoid/cave/explored)
 "tv" = (/obj/effect/turf_decal/techfloor/orange{dir = 10},/turf/open/floor/plasteel/tech,/area/ruin/unpowered/server_array)
 "ub" = (/obj/structure/sign/warning/securearea{pixel_y = 32},/obj/structure/flora/rock/pile/icy,/turf/open/floor/plating/asteroid/snow/icemoon,/area/overmap_encounter/planetoid/cave/explored)
 "uf" = (/obj/effect/turf_decal/siding/thinplating{dir = 8},/obj/effect/decal/cleanable/dirt/dust,/obj/structure/closet/crate/large,/turf/open/floor/plasteel/mono/dark,/area/ruin/unpowered/server_array/crew)
