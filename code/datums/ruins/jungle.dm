@@ -49,6 +49,7 @@
 	description = "A bombed out airbase from the ICW, taken back over by nature"
 	suffix = "jungle_bombed_starport.dmm"
 	ruin_tags = list(RUIN_TAG_MEDIUM_COMBAT, RUIN_TAG_MAJOR_LOOT, RUIN_TAG_HAZARDOUS, RUIN_TAG_LIVEABLE)
+	dynamic_mission_types = list(/datum/mission/dynamic/blackbox)
 
 /datum/map_template/ruin/jungle/medtech
 	name = "MedTech facility"
@@ -63,7 +64,10 @@
 	description = "A frontiersmen base, hidden within a cave. They don't seem friendly"
 	suffix = "jungle_cavecrew.dmm"
 	ruin_tags = list(RUIN_TAG_MEDIUM_COMBAT, RUIN_TAG_HAZARDOUS, RUIN_TAG_LIVEABLE, RUIN_TAG_MAJOR_LOOT)
-	dynamic_mission_types = list(/datum/mission/dynamic/kill/frontiersmen)
+	dynamic_mission_types = list(
+		/datum/mission/dynamic/kill/frontiersmen,
+		/datum/mission/dynamic/data_reterival
+	)
 
 /datum/map_template/ruin/jungle/library
 	name = "Abandoned Library"

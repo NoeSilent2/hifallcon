@@ -1,29 +1,40 @@
-/obj/effect/landmark/mission_poi/drill
-
-/datum/mission/dynamic/drill
-	name = "drill mission"
-	desc = "get this drill back up and running and send us proof"
-	setpiece_item = /obj/item/drill_readout
-	var/drill_type = /obj/machinery/drill/mission/ruin
+/datum/mission/dynamic/signaled
+	var/registered_type
+	var/atom/movable/registered_item
 	/// What signal will spawn the required item
-	var/mission_main_signal = COMSIG_DRILL_SAMPLES_DONE
+	var/mission_main_signal
 
-/datum/mission/dynamic/drill/spawn_main_piece(obj/effect/landmark/mission_poi/mission_poi)
-	var/drill_obj = set_bound(mission_poi.use_poi(drill_type), null, FALSE, TRUE)
-	RegisterSignal(drill_obj, mission_main_signal, PROC_REF(on_drill_done))
+/datum/mission/dynamic/signaled/spawn_main_piece(obj/effect/landmark/mission_poi/mission_poi)
+	var/registered_item = set_bound(mission_poi.use_poi(registered_type), null, FALSE, TRUE)
+	RegisterSignal(registered_item, mission_main_signal, PROC_REF(on_signaled))
 
-/datum/mission/dynamic/drill/proc/on_drill_done(obj/machinery/drill/drill_obj)
+/datum/mission/dynamic/signaled/proc/on_signaled(atom/movable/registered_item)
 	SIGNAL_HANDLER
 
-	required_item = new setpiece_item(drill_obj.loc)
+	required_item = new setpiece_item(registered_item.loc)
 	set_bound(required_item, null, FALSE, TRUE)
-	UnregisterSignal(drill_obj, mission_main_signal)
-	remove_bound(drill_obj)
+	UnregisterSignal(registered_item, mission_main_signal)
+	remove_bound(registered_item)
+
+/obj/effect/landmark/mission_poi/main/drill
+
+/datum/mission/dynamic/signaled/drill
+	name = "drill mission"
+	desc = "get this drill back up and running and send us proof"
+	faction = list(
+		/datum/faction/nt,
+		/datum/faction/nt/ns_logi,
+		/datum/faction/nt/vigilitas,
+		/datum/faction/frontier,
+		/datum/faction/independent
+	)
+	registered_type = /obj/machinery/drill/mission/ruin
+	setpiece_item = /obj/item/drill_readout
+	mission_main_signal = COMSIG_DRILL_SAMPLES_DONE
 
 /*
-		Core sampling drill
+ * Core sampling drill
 */
-
 /obj/machinery/drill/mission
 	name = "core sampling research drill"
 	desc = "A specialized laser drill designed to extract geological samples."

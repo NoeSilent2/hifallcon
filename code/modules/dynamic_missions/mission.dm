@@ -4,10 +4,11 @@
 	var/desc = "Do something for me."
 	var/faction = /datum/faction/independent
 	var/value = 1000 /// The mission's payout.
+	var/atom/movable/mission_reward
 	var/duration /// The amount of time in which to complete the mission. Setting it to 0 will result in no time limit
 	var/weight = 0 /// The relative probability of this mission being selected. 0-weight missions are never selected.
 
-	///Only needed if you have multipe missiosn that use the same poi's on the map
+	///Only needed if you have multipe missiosn that use the same poi's on the map. Set at new.
 	var/mission_index
 
 	var/location_specific = TRUE
@@ -31,9 +32,10 @@
 	/// is a callback to be invoked upon the atom's qdeletion.
 	var/list/atom/movable/bound_atoms
 
-/datum/mission/New(_location)
+/datum/mission/New(location, mission_index)
 	//source_outpost = _outpost
-	mission_location = _location
+	src.mission_location = location
+	src.mission_index = mission_index
 	SSmissions.inactive_missions += list(src)
 	//RegisterSignal(source_outpost, COMSIG_PARENT_QDELETING, PROC_REF(on_vital_delete))
 	RegisterSignal(mission_location, COMSIG_PARENT_QDELETING, PROC_REF(on_vital_delete))
@@ -57,6 +59,7 @@
 	return ..()
 
 /datum/mission/proc/on_vital_delete()
+	SSblackbox.record_feedback("tally", "mission_vital_delete", 1, src.type)
 	qdel(src)
 
 /datum/mission/proc/generate_mission_details()
@@ -69,13 +72,18 @@
 		value = value * (dur_value_scaling ? old_dur / duration : 1)
 	value = round(value, 50)
 
+	faction = pick(faction)
 	author = random_species_name()
 	return
 
 /datum/mission/proc/reward_flavortext()
-	return "[value * 1.2] cr upon completion"
+	var/reward_string = "[value] cr upon completion"
+	if(ispath(mission_reward))
+		reward_string += "along with [mission_reward::name]"
+	return reward_string
 
 /datum/mission/proc/start_mission()
+	SSblackbox.record_feedback("tally", "mission_started", 1, src.type)
 	SSmissions.inactive_missions -= src
 	active = TRUE
 	if(duration)
@@ -105,6 +113,7 @@
 
 /datum/mission/proc/turn_in(atom/movable/item_to_turn_in)
 	if(can_turn_in(item_to_turn_in))
+		SSblackbox.record_feedback("tally", "mission_turned_in", 1, src.type)
 		spawn_reward(item_to_turn_in.loc)
 		do_sparks(3, FALSE, get_turf(item_to_turn_in))
 		qdel(item_to_turn_in)
@@ -112,11 +121,13 @@
 
 /datum/mission/proc/spawn_reward(loc)
 	new /obj/item/spacecash/bundle(loc, value * 1.2)
+	if(ispath(mission_reward))
+		new mission_reward(loc)
 
 /datum/mission/proc/can_complete()
 	return !failed
 
-/datum/mission/proc/get_tgui_info(list/items_on_pad)
+/datum/mission/proc/get_tgui_info(list/items_on_pad = list())
 	var/time_remaining = max(dur_timer ? timeleft(dur_timer) : duration, 0)
 
 	var/act_str = ""
@@ -136,7 +147,7 @@
 		"name" = src.name,
 		"author" = src.author,
 		"desc" = src.desc,
-		"rewards" = src.reward_flavortext(),
+		"reward" = src.reward_flavortext(),
 		"faction" = SSfactions.faction_name(src.faction),
 		"location" = "X[mission_location.x]/Y[mission_location.y]: [mission_location.name]",
 		"x" = mission_location.x,

@@ -12,8 +12,6 @@ import { Window } from '../../layouts';
 import { Mission, Data } from './types';
 
 export const MissionBoard = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
-  const {} = data;
   return (
     <Window width={600} height={700} resizable>
       <Window.Content scrollable>
@@ -23,7 +21,7 @@ export const MissionBoard = (props, context) => {
   );
 };
 
-const MissionsContent = (props, context) => {
+export const MissionsContent = (props, context) => {
   const { act, data } = useBackend<Data>(context);
   const { missions, pad, id_inserted, sending } = data;
   return (
@@ -90,17 +88,17 @@ const MissionsList = (props, context) => {
         <LabeledList.Item label="Faction">{faction}</LabeledList.Item>
         <LabeledList.Item label="Description">{desc}</LabeledList.Item>
         <LabeledList.Item label="Rewards">
+          {reward}
           <Button
             icon={'arrow-up'}
-            tooltip={'Choose Reward'}
+            tooltip={'Turn in mission'}
             disabled={!canTurnIn || !pad || !id_inserted}
             onClick={() => act('send', { mission: ref })}
           >
-            {reward}
+            Turn in
           </Button>
-          <LabeledList.Divider />
           {duration ? missionTimer(mission) : ''}
-          <LabeledList.Divider />
+
           {validItems.map((validItem: string) => (
             <Box>{validItem}</Box>
           ))}
